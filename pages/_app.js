@@ -8,14 +8,15 @@ import { useRouter } from 'next/router';
 const inter = Inter({ subsets: ['latin'] })
 
 export default function App({ Component, pageProps }) {
-  const { asPath } = useRouter()
-  console.log(asPath)
+  const router = useRouter()
+  const { asPath } = router;
   return (
     <main
-      className={`flex min-h-screen flex-col items-center justify-start overflow-hidden ${inter.className}`}
+      // className={`flex h-[100vh] flex-col items-center justify-start overflow-scroll ${inter.className}`}
+      className='w-[100vw] h-[100vh] flex flex-col justify-start items-center'
     >
-      <div className="z-10 w-full items-center justify-between font-mono text-sm lg:flex px-5 bg-white/20 shadow-[0_5px_20px_-5px_rgba(255,255,255,0.3)]">
-        <Header hello={asPath == '/' ? '/test' : '/'}/>
+      <div className="z-10 w-full items-center justify-between font-mono text-sm lg:flex bg-white/20 shadow-[0_5px_20px_-5px_rgba(255,255,255,0.3)]">
+        <Header />
       </div>
       <Transition>
         <Component {...pageProps} />

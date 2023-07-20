@@ -1,29 +1,28 @@
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { useRouter } from 'next/router';
 
-const window_width = this.outerWidth
 const variants = {
   inactive: {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 0.5,
+      duration: 1,
       ease: 'easeInOut'
     },
   },
   out: {
     opacity: 0,
-    x: window_width/2,
+    x: 2400,
     transition: {
-      duration: 0.5,
+      duration: 0.7,
       ease: 'easeInOut'
-    }
+    },
   },
   in: {
-    x: -window_width/2,
+    x: -2400,
     opacity: 0,
     transition: {
-      duration: 0.5,
+      duration: 0.7,
       ease: 'easeInOut'
     }
   },

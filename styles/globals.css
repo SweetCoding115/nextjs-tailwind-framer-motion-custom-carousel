@@ -2,111 +2,127 @@
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar {
-  height: 5px;
-  width: 5px;
-  background: var(--background);
+* {
+  margin: 0;
+  padding: 0;
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--accent);
-  -webkit-border-radius: 1ex;
+html,
+body {
+  height: 100%;
+  /* for touch screen */
+  touch-action: none; 
 }
 
-::-webkit-scrollbar-corner {
-  background: var(--background);
-}
-
-html {
-  scroll-snap-type: y mandatory;
-}
-
-
-section {
-  width: 100vw;
-  position: fixed;
-  height: 100vh;
-}
-
-
-.parallax {
+body {
   overflow: hidden;
-  letter-spacing: -2px;
-  line-height: 0.8;
-  margin: 20px auto;
-  white-space: nowrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: nowrap;
+  background: #111;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
 }
 
-.parallax .scroller {
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 64px;
+#drag-container, #spin-container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  white-space: nowrap;
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-.parallax span {
-  display: block;
-  margin-right: 30px;
-}
-
-
-.circle {
-  position: fixed;
-  z-index: 100;
-  display: flex;
-  flex-flow: row;
-  align-content: center;
-  justify-content: center;
-  top: 0;
-  left: 0;
-  height: 24px;
-  width: 24px;
-  background-color: #D44343;
-  border-radius: 200px;
-  pointer-events: none;
-  color: #fff;
-  text-align: center;
-  font-size: 16px;                                      
-}
-
-.cursorText {
-  flex: auto;
-  font-size: inherit;
-  pointer-events: none;
   margin: auto;
-  font-size: 14px;
-  font-weight: bold;
-  color: white;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transform: rotateX(-10deg);
+          transform: rotateX(-10deg);
 }
 
-.container {
-  display: flex;
-  flex-flow: row;
-  width: 100vw;
-  height: 100vh;
-  align-items: center;
-  justify-content: space-around;
+#drag-container img {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 200px;
+  font-size: 50px;
+  text-align: center;
+  -webkit-box-shadow: 0 0 8px #fff;
+          box-shadow: 0 0 8px #fff;
+  -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
 }
 
-
-.heading {
-  font-weight: 500;
-  font-size: 36px;
-  line-height: 1.2;
-  text-decoration: underline;
-  transition: 150ms ease;
-  cursor: pointer;
+#drag-container img:hover {
+  -webkit-box-shadow: 0 0 15px #fffd;
+          box-shadow: 0 0 15px #fffd;
+  -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
 }
 
-.sell:hover {
-  color: #D44343;
+#drag-container p {
+  font-family: Serif;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%) rotateX(90deg);
+          transform: translate(-50%,-50%) rotateX(90deg);
+  color: #fff;
 }
 
-.buy:hover {
-  color: #29B550;
+#ground {
+  width: 900px;
+  height: 900px;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%) rotateX(90deg);
+          transform: translate(-50%,-50%) rotateX(90deg);
+  background: -webkit-radial-gradient(center center, farthest-side , #9993, transparent);
+}
+
+@-webkit-keyframes spin {
+  from{
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  } to{
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+
+@keyframes spin {
+  from{
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  } to{
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  }
+}
+@-webkit-keyframes spinRevert {
+  from{
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  } to{
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
+@keyframes spinRevert {
+  from{
+    -webkit-transform: rotateY(360deg);
+            transform: rotateY(360deg);
+  } to{
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+  }
+}
+
+.header {
+  background-image: radial-gradient(
+    rgba(0, 0, 0, 0) 2px,
+    rgba(255, 255, 255, 0.1) 1px
+  );
+  background-size: 5px 5px;
 }
