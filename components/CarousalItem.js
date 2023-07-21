@@ -1,19 +1,17 @@
-import Image from "next/image";
+import BlurImage from "./BlurImage";
 
 const CarousalItem = ({ item, width }) => {
   return (
     <div
-      className="inline-flex items-start w-full h-full"
+      className="inline-flex items-start w-full h-full relative"
       style={{ width: width}}
     >
-      <Image
-        src={item.src}
-        alt=""
-        width={2500}
-        height={1400}
-        className="h-full"
+      <BlurImage
+        image={item.src}
+        alt={item.description}
       />
     </div>
   );
 };
+
 export default CarousalItem;

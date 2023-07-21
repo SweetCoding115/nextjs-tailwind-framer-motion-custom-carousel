@@ -21,6 +21,7 @@
     "tailwindcss": "3.3.3"
   },
   "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
     "daisyui": "^3.2.1"
   }
 }

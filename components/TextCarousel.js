@@ -8,7 +8,7 @@ const TextCarousel = ({ card, index, activeIndex, className, isHeader }) => {
       const childHeight = childRef.current.offsetHeight;
       parentRef.current.style.height = `${childHeight / card.length}px`;
     }
-  }, []);
+  });
   return (
     <div ref={parentRef} className={className}>
       <p

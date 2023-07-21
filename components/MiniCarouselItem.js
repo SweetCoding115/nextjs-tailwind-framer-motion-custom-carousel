@@ -1,19 +1,17 @@
-import Image from "next/image";
+import BlurImage from "./BlurImage";
 
-const MiniCarouselItem = ({ item, width }) => {
+const MiniCarouselItem = ({ item, width, alt }) => {
   return (
     <div
-      className="inline-flex items-start w-full h-full"
+      className="inline-flex items-start w-full h-full relative"
       style={{ width: width}}
     >
-      <Image
-        src={item}
-        alt=""
-        width={1080}
-        height={1920}
-        className="h-full w-full"
+      <BlurImage
+        image={item.src}
+        alt={'mini_' + alt}
       />
     </div>
   );
 };
+
 export default MiniCarouselItem;

@@ -34,13 +34,9 @@ const Carousal = ({ card, subCard, className }) => {
     };
   });
 
-  const handleClick = () => {
-
-  }
-
   return (
     <div
-      className={`flex relative justify-between align-start shadow-xl shadow-white/10 ${className}`}
+      className={`flex relative w-full h-full justify-between align-start shadow-xl shadow-white/10 ${className}`}
     >
       <div className="w-[20vw] bg-black"></div>
       <div
@@ -49,12 +45,12 @@ const Carousal = ({ card, subCard, className }) => {
         <div
           onMouseEnter={() => setIsSwipingPaused(true)}
           onMouseLeave={() => setIsSwipingPaused(false)}
-          className="inner whitespace-nowrap h-[100%] transition duration-3000"
+          className="inner whitespace-nowrap h-full transition duration-3000"
           style={{ transform: `translateX(${-activeIndex* 100}%)` }}
         >
-          {card.map((child, index) =>  (
+          {card.map((child, i) =>  (
             <CarousalItem
-              key={"carousel_" + index}
+              key={"carousel_" + i}
               item={child}
               width="100%"
             ></CarousalItem>
@@ -64,8 +60,10 @@ const Carousal = ({ card, subCard, className }) => {
       <div 
         className="left-[10vw] md:top-[10vw] top-[15vw] absolute flex"
       >
-        <div className="w-[20vw] h-[35vw] overflow-hidden">
+        <div className="w-[20vw] h-[35vw] overflow-hidden relative">
           <div
+            onMouseEnter={() => setIsSwipingPaused(true)}
+            onMouseLeave={() => setIsSwipingPaused(false)}
             className="inner whitespace-nowrap h-full transition duration-3000"
             style={{ transform: `translateX(${-activeIndex* 100}%)` }}
           >
@@ -73,6 +71,7 @@ const Carousal = ({ card, subCard, className }) => {
               <MiniCarouselItem
                 key={'subcarousel_' + i}
                 item={item}
+                alt={i}
                 width="100%"
               ></MiniCarouselItem>
             ))}
